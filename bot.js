@@ -8,22 +8,7 @@ const config = require("./Data/config.json")
 
 const client = new Client()
 
-const fs = require("fs")
-
-const Command = require("./Structures/Command.js")
-
-fs.readdirSync("./Commands")
-    .filter(file => file.endsWith(".js"))
-    .forEach(file => {
-
-        /**
-         * @type {Command}
-         */
-        const command = require(`./Commands/${file}`)
-        console.log(`Command ${command.name} loaded`)
-        client.commands.set(command.name, command)
-
-})
+client.start(process.env.BOT_TOKEN)
 
 client.on('ready', () => {
     console.log('bot is online!!')
@@ -41,20 +26,4 @@ client.on("messageCreate", message => {
 
     command.run(message, args, client)
 
-    // switch(args[0]) {
-    //     case "hello":
-    //         message.reply("Hello!")
-
-    //         break;
-        
-    //     case "say":
-    //         message.reply(args.slice(1).join(" "))
-
-    //         break;
-        
-    //     default:
-    //         console.log('broke')
-    // }
 })
-
-client.login(process.env.BOT_TOKEN)
