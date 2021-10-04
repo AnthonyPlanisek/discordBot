@@ -3,11 +3,11 @@ const Client = require("./Client.js")
 
 /**
  * 
- * @param {Discord.Message | Discord.Interaction} message 
+ * @param {Discord.Message} message 
  * @param {string[]} args 
  * @param {Client} client 
  */
-function RunFunction(message, args, client) {}
+function RunFunction(message, args, client, channel) {}
 
 class Command {
     /**
