@@ -6,12 +6,13 @@ module.exports = new Command({
 
     async run(message, args, client) {
 
-        message.reply(MeWhenThe(args[0]))
+        message.reply(MeWhenThe())
         
     }
 })
 
-function MeWhenThe(amount){
+function MeWhenThe(){
+    let amount = Math.random * 100;
     let stringToPrint = "Me when the"
     for (let i = 0; i < amount; i++){
         temp = Math.random * 3;
